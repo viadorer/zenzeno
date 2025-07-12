@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objednávka - zenzeno.cz</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="header-container"></div>
+
+    <!-- Order Page Content -->
+    <main class="checkout-main">
+        <div class="container">
+            <div class="checkout-header">
+                <h1>Dokončení objednávky</h1>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Košík</span>
+                    </div>
+                    <div class="step active">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Údaje</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Dokončení</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Order Form -->
+                <div class="checkout-form">
+                    <form id="order-form">
+                        <!-- Customer Information -->
+                        <div class="form-section">
+                            <h2>Kontaktní údaje</h2>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Jméno *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Příjmení *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefon *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="form-section">
+                            <h2>Doručovací adresa</h2>
+                            <div class="form-group">
+                                <label for="street">Ulice a číslo popisné *</label>
+                                <input type="text" id="street" name="street" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">Město *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">PSČ *</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Země *</label>
+                                <select id="country" name="country" required>
+                                    <option value="CZ">Česká republika</option>
+                                    <option value="SK">Slovensko</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Billing Address -->
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="same-address" name="sameAddress" checked>
+                                <label for="same-address">Fakturační adresa je stejná jako doručovací</label>
+                            </div>
+                            
+                            <div id="billing-address" class="billing-address" style="display: none;">
+                                <h3>Fakturační adresa</h3>
+                                <div class="form-group">
+                                    <label for="billing-street">Ulice a číslo popisné *</label>
+                                    <input type="text" id="billing-street" name="billingStreet">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="billing-city">Město *</label>
+                                        <input type="text" id="billing-city" name="billingCity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="billing-zip">PSČ *</label>
+                                        <input type="text" id="billing-zip" name="billingZip">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shipping Method -->
+                        <div class="form-section">
+                            <h2>Způsob dopravy</h2>
+                            <div class="shipping-options">
+                                <div class="shipping-option">
+                                    <input type="radio" id="shipping-post" name="shipping" value="post" checked>
+                                    <label for="shipping-post">
+                                        <div class="option-details">
+                                            <span class="option-name">Česká pošta</span>
+                                            <span class="option-price">99 Kč</span>
+                                        </div>
+                                        <div class="option-description">Doručení do 3-5 pracovních dnů</div>
+                                    </label>
+                                </div>
+                                <div class="shipping-option">
+                                    <input type="radio" id="shipping-courier" name="shipping" value="courier">
+                                    <label for="shipping-courier">
+                                        <div class="option-details">
+                                            <span class="option-name">Kurýrní služba</span>
+                                            <span class="option-price">149 Kč</span>
+                                        </div>
+                                        <div class="option-description">Doručení do 1-2 pracovních dnů</div>
+                                    </label>
+                                </div>
+                                <div class="shipping-option">
+                                    <input type="radio" id="shipping-pickup" name="shipping" value="pickup">
+                                    <label for="shipping-pickup">
+                                        <div class="option-details">
+                                            <span class="option-name">Osobní odběr</span>
+                                            <span class="option-price">Zdarma</span>
+                                        </div>
+                                        <div class="option-description">Praha 1 - Wenceslas Square 14</div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="form-section">
+                            <h2>Způsob platby</h2>
+                            <div class="payment-options">
+                                <div class="payment-option">
+                                    <input type="radio" id="payment-card" name="payment" value="card" checked>
+                                    <label for="payment-card">
+                                        <div class="option-details">
+                                            <span class="option-name">Platební karta</span>
+                                            <span class="option-price">Zdarma</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="payment-transfer" name="payment" value="transfer">
+                                    <label for="payment-transfer">
+                                        <div class="option-details">
+                                            <span class="option-name">Bankovní převod</span>
+                                            <span class="option-price">Zdarma</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="payment-option">
+                                    <input type="radio" id="payment-cod" name="payment" value="cod">
+                                    <label for="payment-cod">
+                                        <div class="option-details">
+                                            <span class="option-name">Dobírka</span>
+                                            <span class="option-price">+30 Kč</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Notes -->
+                        <div class="form-section">
+                            <h2>Poznámka k objednávce</h2>
+                            <div class="form-group">
+                                <textarea id="notes" name="notes" placeholder="Zde můžete uvést jakékoliv poznámky k objednávce..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-section">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">
+                                    Souhlasím s <a href="#" target="_blank">obchodními podmínkami</a> *
+                                </label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    Souhlasím se <a href="#" target="_blank">zpracováním osobních údajů</a> *
+                                </label>
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <label for="newsletter">
+                                    Chci dostávat novinky a speciální nabídky na e-mail
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-card">
+                        <h2>Shrnutí objednávky</h2>
+                        
+                        <div id="order-items" class="order-items">
+                            <!-- Cart items will be loaded here -->
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Mezisoučet:</span>
+                            <span id="subtotal">0 Kč</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Doprava:</span>
+                            <span id="shipping-cost">99 Kč</span>
+                        </div>
+                        
+                        <div class="summary-row total">
+                            <span>Celkem:</span>
+                            <span id="total-cost">99 Kč</span>
+                        </div>
+
+                        <button type="submit" form="order-form" class="btn-primary order-submit">
+                            Dokončit objednávku
+                        </button>
+
+                        <div class="security-info">
+                            <p>🔒 Vaše údaje jsou chráněny SSL šifrováním</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/csv-loader.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <script>
+        // Initialize components
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeComponents();
+            initializeCheckout();
+        });
+    </script>
+</body>
+</html>

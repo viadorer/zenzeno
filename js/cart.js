@@ -120,15 +120,15 @@ class ShoppingCart {
                     <h4 class="cart-item-name">${item.name}</h4>
                     <div class="cart-item-price">${item.price} Kč</div>
                     <div class="cart-item-controls">
-                        <button class="quantity-btn" onclick="cart.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                        <button class="quantity-btn" onclick="event.stopPropagation(); cart.updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
                         <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn" onclick="cart.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                        <button class="quantity-btn" onclick="event.stopPropagation(); cart.updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                     </div>
                 </div>
                 <div class="cart-item-total">
                     ${(item.price * item.quantity)} Kč
                 </div>
-                <button class="cart-item-remove" onclick="cart.removeItem(${item.id})">×</button>
+                <button class="cart-item-remove" onclick="event.stopPropagation(); cart.removeItem(${item.id})">×</button>
             </div>
         `).join('');
 
@@ -204,11 +204,8 @@ function proceedToCheckout() {
         return;
     }
     
-    // For now, just show a simple alert
-    // In a real implementation, this would redirect to checkout
-    const total = cart.getTotalPrice().toFixed(2);
-    const itemCount = cart.getTotalItems();
-    alert(`Přesměrování na objednávku...\n\nPočet položek: ${itemCount}\nCelková cena: ${total} €`);
+    // Redirect to checkout page
+    window.location.href = 'objednavka.html';
 }
 
 // Close cart when clicking outside
@@ -216,9 +213,13 @@ document.addEventListener('click', function(event) {
     const cartSidebar = document.getElementById('cart-sidebar');
     const cartToggle = document.querySelector('.cart-toggle');
     
+    // Don't close cart if clicking on cart interactive elements
+    const isCartButton = event.target.closest('button') && cartSidebar && cartSidebar.contains(event.target);
+    const isCartToggle = cartToggle && cartToggle.contains(event.target);
+    const isInsideCart = cartSidebar && cartSidebar.contains(event.target);
+    
     if (cartSidebar && cartSidebar.classList.contains('open') && 
-        !cartSidebar.contains(event.target) && 
-        !cartToggle.contains(event.target)) {
+        !isInsideCart && !isCartToggle) {
         toggleCart();
     }
 });

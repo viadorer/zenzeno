@@ -319,14 +319,11 @@
     <!-- Load JavaScript Components -->
     <script src="js/csv-loader.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/cart.js"></script>
     <script>
         // Load header and footer
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('header-placeholder').innerHTML = createHeader();
-            document.getElementById('footer-placeholder').innerHTML = createFooter();
-            
-            // Initialize cart functionality
-            initializeCart();
+            initializeComponents();
         });
     </script>
 </body>
