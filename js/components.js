@@ -168,24 +168,27 @@ function createCartSidebar() {
 
 // Product Card Component
 function createProductCard(product) {
+    const detailUrl = `produkt-detail.html?id=${product.id}`;
     return `
         <div class="product-card" data-id="${product.id}">
-            <div class="product-image">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
-                ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">${product.name}</h3>
-                <p class="product-description">${product.description}</p>
-                <div class="product-pricing">
-                    <span class="product-price">${product.price} Kč</span>
-                    ${product.originalPrice ? `<span class="product-original-price">${product.originalPrice} Kč</span>` : ''}
-                    ${product.savings ? `<span class="product-savings">Ušetříte: ${product.savings} Kč</span>` : ''}
+            <a href="${detailUrl}" class="product-link">
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
                 </div>
-                <button class="btn-primary add-to-cart" onclick="addToCart(${product.id})">
-                    Přidat do košíku
-                </button>
-            </div>
+                <div class="product-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-description">${product.description}</p>
+                    <div class="product-pricing">
+                        <span class="product-price">${product.price} Kč</span>
+                        ${product.originalPrice ? `<span class="product-original-price">${product.originalPrice} Kč</span>` : ''}
+                        ${product.savings ? `<span class="product-savings">Ušetříte: ${product.savings} Kč</span>` : ''}
+                    </div>
+                </div>
+            </a>
+            <button class="btn-primary add-to-cart" onclick="addToCart(${product.id})">
+                Přidat do košíku
+            </button>
         </div>
     `;
 }

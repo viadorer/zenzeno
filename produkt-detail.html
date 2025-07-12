@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail produktu - ZENZENO</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <div id="header-container"></div>
+    
+    <!-- Loading state -->
+    <div id="loading" class="loading-state">
+        <div class="loading-spinner"></div>
+        <p>Načítání produktu...</p>
+    </div>
+
+    <!-- Product Detail Content -->
+    <div id="product-detail-content" class="product-detail-page" style="display: none;">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Product Image -->
+                <div class="product-image-section">
+                    <div class="product-image-container">
+                        <img id="product-image" src="" alt="" class="main-product-image">
+                        <div id="product-badge" class="product-badge"></div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info-section">
+                    <h1 id="product-title" class="product-title"></h1>
+                    <p id="product-description" class="product-description"></p>
+
+                    <div class="pricing-section">
+                        <div class="pricing-option">
+                            <h3>Jednorázový nákup</h3>
+                            <div class="price-display">
+                                <span id="product-price" class="current-price"></span>
+                                <span id="original-price" class="original-price"></span>
+                            </div>
+                            <div id="savings-info" class="savings-info"></div>
+                        </div>
+
+                        <div class="premier-pricing" id="premier-pricing" style="display: none;">
+                            <h4>Cena Premier</h4>
+                            <div class="premier-price">
+                                <span id="premier-price-value"></span>
+                            </div>
+                            <p class="premier-info">Při zakoupení prémiové sady ušetříte až 60 % na všech produktech z naší nabídky.</p>
+                            <a href="#" class="show-sets-link">Zobrazit všechny sady</a>
+                        </div>
+
+                        <div class="retail-pricing">
+                            <h4>Cena Retail</h4>
+                            <span id="retail-price" class="retail-price-value"></span>
+                        </div>
+
+                        <button class="add-to-cart-btn">Přidat do košíku</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Details Sections -->
+            <div class="product-details-sections">
+                <div class="detail-section">
+                    <button class="section-toggle active" data-section="overview">
+                        <span>Přehled produktu</span>
+                        <span class="toggle-icon">−</span>
+                    </button>
+                    <div class="section-content active" id="overview">
+                        <div id="product-overview-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="benefits">
+                        <span>Hlavní přínosy</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="benefits">
+                        <div id="product-benefits-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="ingredients">
+                        <span>Ingredience</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="ingredients">
+                        <div id="product-ingredients-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="info">
+                        <span>Více informací</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="info">
+                        <div id="product-info-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="usage">
+                        <span>Návod k použití</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="usage">
+                        <div id="product-usage-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="videos">
+                        <span>Videa</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="videos">
+                        <div id="product-videos-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <button class="section-toggle" data-section="documents">
+                        <span>Dokumenty a certifikáty</span>
+                        <span class="toggle-icon">+</span>
+                    </button>
+                    <div class="section-content" id="documents">
+                        <div id="product-documents-content">
+                            <!-- Dynamic content will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Share Section -->
+            <div class="share-section">
+                <h3>SDÍLEJTE</h3>
+                <div class="share-buttons">
+                    <button class="share-btn facebook">Facebook</button>
+                    <button class="share-btn twitter">Twitter</button>
+                    <button class="share-btn email">Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="error-state" class="error-state" style="display: none;">
+        <div class="container">
+            <h2>Produkt nebyl nalezen</h2>
+            <p>Omlouváme se, ale požadovaný produkt neexistuje nebo byl odstraněn.</p>
+            <a href="produkty.html" class="btn-primary">Zpět na produkty</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/csv-loader.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>
