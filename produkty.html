@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkty - ZENZENO</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/produkty.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <div id="header-container"></div>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Naše produkty</h1>
+                <p>Objevte naši kompletní nabídku zdravotních doplňků a testů</p>
+            </div>
+        </section>
+
+        <!-- Filters and Search -->
+        <section class="product-filters">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="search-container">
+                        <input type="text" id="product-search" placeholder="Hledat produkty..." />
+                        <button type="button" id="clear-search" class="clear-btn" title="Vymazat hledání">×</button>
+                    </div>
+                    
+                    <div class="filter-categories">
+                        <select id="category-filter">
+                            <option value="">Všechny kategorie</option>
+                            <option value="health-tests">Domácí zdravotní testy</option>
+                            <option value="omega">Omega suplementy</option>
+                            <option value="immune">Imunitní podpora</option>
+                            <option value="restore">Regenerace</option>
+                            <option value="gut-health">Zdraví střev</option>
+                            <option value="weight-management">Podpora hubnutí</option>
+                            <option value="skin-care">Péče o pleť</option>
+                            <option value="skin-nutrition">Výživa pleti</option>
+                            <option value="accessories">Doplňky</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-price">
+                        <select id="price-filter">
+                            <option value="">Všechny ceny</option>
+                            <option value="0-625">0 - 625 Kč</option>
+                            <option value="625-1250">625 - 1250 Kč</option>
+                            <option value="1250-2500">1250 - 2500 Kč</option>
+                            <option value="2500-5000">2500 - 5000 Kč</option>
+                            <option value="5000+">5000+ Kč</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-featured">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="featured-filter">
+                            <span class="checkmark"></span>
+                            Pouze doporučené
+                        </label>
+                    </div>
+                    
+                    <div class="filter-sort">
+                        <select id="sort-filter">
+                            <option value="">Výchozí řazení</option>
+                            <option value="price-low">Cena: od nejnižší</option>
+                            <option value="price-high">Cena: od nejvyšší</option>
+                            <option value="name">Název A-Z</option>
+                            <option value="featured">Doporučené</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button type="button" id="clear-filters" class="btn-secondary">Vymazat vše</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-header">
+                    <div id="products-count"></div>
+                    <div class="products-per-page">
+                        <label for="products-per-page-select">Produktů na stránku:</label>
+                        <select id="products-per-page-select">
+                            <option value="12">12</option>
+                            <option value="24">24</option>
+                            <option value="36">36</option>
+                            <option value="all">Všechny</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="products-grid" class="products-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+                
+                <!-- Pagination -->
+                <div id="pagination" class="pagination hidden">
+                    <button id="prev-page" class="pagination-btn" disabled>
+                        ← Předchozí
+                    </button>
+                    <div id="page-numbers" class="page-numbers">
+                        <!-- Page numbers will be generated here -->
+                    </div>
+                    <button id="next-page" class="pagination-btn">
+                        Další →
+                    </button>
+                </div>
+                
+                <div id="no-products" class="no-products hidden">
+                    <h3>Žádné produkty nenalezeny</h3>
+                    <p>Zkuste upravit filtry nebo hledaný výraz.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar"></div>
+
+    <!-- Scripts -->
+    <script src="js/csv-loader.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/produkty.js"></script>
+</body>
+</html>

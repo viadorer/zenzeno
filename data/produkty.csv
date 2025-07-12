@@ -1,0 +1,31 @@
+ID;Kód;Název;Popis;Cena;Původní_cena;Úspora;Obrázek;Kategorie;Doporučené;Označení
+1;BT001;BalanceTest;Vaše osobní cesta za životní pohodu začíná zde.;1800;3325;1400;images/prod1.png;health-tests;ANO;Populární
+2;BT002;BalanceTest x2;Vaše osobní cesta za životní pohodu začíná zde.;3500;4625;4825;images/prod2.png;health-tests;ANO;Výhodný balíček
+3;VD001;Vitamin D Test;Samotest pro analýzu množství vitaminu D v krvi;1200;1300;550;images/prod3.png;health-tests;ANO;
+4;HB001;HbA1c Test;Dlouhodobý test hladiny krevního cukru a...;1200;1300;550;images/prod4.png;health-tests;ANO;
+5;BO300;BalanceOil+ 300ml;Prémiový omega-3 olej s olivovým olejem a vitaminem D3;879;;;images/300000.png;omega;NE;Bestseller
+6;BO100;BalanceOil+ 100ml;Prémiový omega-3 olej s olivovým olejem a vitaminem D3;150;;;images/300310.png;omega;NE;
+7;BO600;BalanceOil+ 6x100ml;Balíček 6 kusů BalanceOil+ 100ml pro dlouhodobé užívání;3375;3750;375;images/300430.png;omega;NE;Výhodný balíček
+8;300,00 BOP;BalanceOil+ Premium 300ml;Prémiová verze s vylepšenou formulí;879;1650;;images/700000.png;omega;NE;
+9;BOA300;BalanceOil+ AquaX 300ml;Vodní emulze pro snadnější vstřebávání;1950;;;images/300481.png;omega;NE;
+10;300,00 BOV;BalanceOil+ Vegan 300ml;Veganská alternativa s mořskými řasami;2125;;;images/300520.png;omega;NE;
+11;BOT300;BalanceOil Tutti Frutti 300ml;S ovocnou chutí pro celou rodinu;1625;;;images/300600.png;omega;NE;
+12;ES060;Essenz+ Premium 60 softgels;Omega-3 v praktických měkkých kapslích;1125;;;images/300700.png;omega;NE;
+13;RO250;R.E.V.O.O Olive Oil 250ml;Extra panenský olivový olej s polyfenoly;875;;;images/300800.png;omega;NE;
+14;DC001;Dosage Cups;Odměrné kalíšky pro přesné dávkování;200;;;images/301331.png;accessories;NE;
+15;ZG030;ZinoGene+ 30 tablet;Pokročilá podpora buněčné regenerace;2375;;;images/301390.png;restore;NE;
+16;ZS120;ZinoShine+ 120 tablet;Antioxidační komplex pro ochranu buněk;1875;;;images/301531.png;restore;NE;
+17;XC060;Xtend+ Core 60 tobolek;Základní regenerační komplex;1250;;;images/301799.png;restore;NE;
+18;XP060;Xtend+ Premium 60 tobolek;Pokročilý regenerační komplex;1875;;;images/302200.png;restore;NE;
+19;PR060;Protect+ 60 tobolek;Ochrana před oxidačním stresem;1450;;;images/302401.png;immune;NE;
+20;MU060;Multify 60 tablet;Komplexní multivitaminový komplex;1050;;;images/302500.png;immune;NE;
+21;GH030;GutHealth+ 30 tobolek;Podpora zdravého střevního mikrobiomu;1675;;;images/302600.png;gut-health;NE;
+22;PR090;Probiotic+ 90 tobolek;Živé probiotické kultury;1950;;;images/302700.png;gut-health;NE;
+23;LB060;LeanBoost+ 60 tobolek;Podpora zdravého metabolismu;1575;;;images/309000.png;weight-management;NE;
+24;EB160;Energy Bar 4x40g pack;Energetické tyčinky s přirozenými ingrediencemi;700;;;images/309011.png;weight-management;NE;
+25;MT001;Měřící pásmo;Měřící pásmo pro sledování pokroku;300;;;images/309049.png;accessories;NE;
+26;CP001;Čisticí přípravky;Jemné čisticí produkty pro denní péči;1125;;;images/309060.png;skin-care;NE;
+27;FC001;Krémy na obličej;Hydratační a vyživující krémy;1625;;;images/colagen.png;skin-care;NE;
+28;SE001;Séra;Koncentrované séra pro intenzivní péči;2125;;;images/viteco.png;skin-care;NE;
+29;MA001;Masky;Regenerační a hydratační masky;875;;;images/masks.png;skin-care;NE;
+30;CB460;Collagen Boost 10x46ml;Kolagenový nápoj pro zdraví pleti zevnitř;3125;;;images/collagen-boost-10x46ml.png;skin-nutrition;NE;
