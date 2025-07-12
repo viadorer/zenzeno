@@ -18,7 +18,7 @@ class ShoppingCart {
 
     // Add item to cart
     addItem(productId, quantity = 1) {
-        const product = getProductById(productId);
+        const product = productLoader.getProductById(productId);
         if (!product) return false;
 
         const existingItem = this.items.find(item => item.id === productId);

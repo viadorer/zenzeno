@@ -70,7 +70,15 @@ class CSVProductLoader {
                     image: values[7],
                     category: values[8],
                     featured: values[9] === 'ANO',
-                    badge: values[10] || null
+                    badge: values[10] || null,
+                    // New detail columns
+                    Přehled_produktu: values[11] ? values[11].replace(/"/g, '') : '',
+                    Hlavní_přínosy: values[12] ? values[12].replace(/"/g, '') : '',
+                    Ingredience: values[13] ? values[13].replace(/"/g, '') : '',
+                    Více_informací: values[14] ? values[14].replace(/"/g, '') : '',
+                    Návod_k_použití: values[15] ? values[15].replace(/"/g, '') : '',
+                    Videa: values[16] ? values[16].replace(/"/g, '') : '',
+                    Dokumenty_a_certifikáty: values[17] ? values[17].replace(/"/g, '') : ''
                 };
                 
                 this.products.push(product);

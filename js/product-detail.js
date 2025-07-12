@@ -191,83 +191,86 @@ class ProductDetail {
     }
 
     getProductOverview(product) {
-        if (product.Kategorie === 'omega') {
-            return `
-                <p>Náš nejprodávanější produkt v řadě různých přírodních příchutí. Zcela přírodní směs čistého rybího oleje z malých, volně žijících ryb a prvotřídního extra panenského olivového oleje z nedozrálých oliv udržuje esenciální živiny omega-3 čerstvé a účinné, aby se mohly plně vstřebat do Vašeho těla.</p>
-                <p><strong>Obsah:</strong> 300 ml</p>
-                <p><strong>Doplněk stravy</strong></p>
-            `;
-        } else if (product.Kategorie === 'health-tests') {
-            return `
-                <p>Moderní zdravotní test pro analýzu vašeho současného stavu. Poskytuje přesné informace o vašich biologických ukazatelích a pomáhá optimalizovat vaši výživu a životní styl.</p>
-                <p><strong>Typ:</strong> Domácí test</p>
-                <p><strong>Výsledky:</strong> Dostupné online</p>
-            `;
+        // Use CSV column data if available, otherwise fallback to description
+        if (product.Přehled_produktu && product.Přehled_produktu.trim()) {
+            return `<p>${product.Přehled_produktu}</p>`;
         }
-        return `<p>${product.Popis}</p>`;
+        return `<p>${product.Popis || 'Přehled produktu bude doplněn.'}</p>`;
     }
 
     getProductBenefits(product) {
-        if (product.Kategorie === 'omega') {
-            return `
-                <ul>
-                    <li>Podporuje normální funkci srdce</li>
-                    <li>Přispívá k normální funkci mozku</li>
-                    <li>Podporuje normální zrak</li>
-                    <li>Pomáhá udržovat normální hladinu triglyceridů v krvi</li>
-                    <li>Podporuje normální krevní tlak</li>
-                    <li>Přispívá k normální funkci imunitního systému</li>
-                </ul>
-            `;
+        // Use CSV column data if available
+        if (product.Hlavní_přínosy && product.Hlavní_přínosy.trim()) {
+            // Convert bullet points from CSV to HTML list
+            const benefits = product.Hlavní_přínosy.split('\n').filter(line => line.trim());
+            const listItems = benefits.map(benefit => `<li>${benefit.replace(/^•\s*/, '')}</li>`).join('');
+            return `<ul>${listItems}</ul>`;
         }
-        return `<p>Konkrétní přínosy tohoto produktu budou doplněny.</p>`;
+        return `<p>Hlavní přínosy tohoto produktu budou doplněny.</p>`;
     }
 
     getProductIngredients(product) {
-        if (product.Kategorie === 'omega') {
-            return `
-                <p><strong>Složení:</strong> Rybí olej, extra panenský olivový olej, přírodní aromata, tokoferol-mix (antioxidant), vitamin D3.</p>
-                <p><strong>Typické hodnoty na 12 ml:</strong></p>
-                <ul>
-                    <li>Omega-3 mastné kyseliny: 3000+ mg</li>
-                    <li>EPA: 1300+ mg</li>
-                    <li>DHA: 1000+ mg</li>
-                    <li>Olivové polyfenoly: 750+ mg</li>
-                    <li>Vitamin D3: 20 μg (400% RHP)</li>
-                </ul>
-            `;
+        // Use CSV column data if available
+        if (product.Ingredience && product.Ingredience.trim()) {
+            return `<p><strong>Složení:</strong> ${product.Ingredience}</p>`;
         }
         return `<p>Detailní složení bude doplněno.</p>`;
     }
 
     getProductMoreInfo(product) {
-        return `
+        let moreInfo = `
             <p><strong>Kód produktu:</strong> ${product.Kód}</p>
             <p><strong>Kategorie:</strong> ${this.getCategoryName(product.Kategorie)}</p>
             <p><strong>Doporučený produkt:</strong> ${product.Doporučené === 'ANO' ? 'Ano' : 'Ne'}</p>
         `;
+        
+        // Add CSV column data if available
+        if (product.Více_informací && product.Více_informací.trim()) {
+            moreInfo += `<div class="additional-info">${product.Více_informací}</div>`;
+        }
+        
+        return moreInfo;
     }
 
     getProductUsage(product) {
-        if (product.Kategorie === 'omega') {
-            return `
-                <p><strong>Doporučené dávkování:</strong></p>
-                <ul>
-                    <li>Dospělí: 0,15 ml na kg tělesné hmotnosti denně</li>
-                    <li>Děti 4-10 let: 4 ml denně</li>
-                    <li>Děti 11-18 let: 8 ml denně</li>
-                </ul>
-                <p><strong>Způsob užívání:</strong> Užívejte s jídlem. Před použitím protřepejte. Po otevření uchovávejte v chladničce a spotřebujte do 45 dnů.</p>
-            `;
+        // Use CSV column data if available
+        if (product.Návod_k_použití && product.Návod_k_použití.trim()) {
+            return `<p><strong>Návod k použití:</strong> ${product.Návod_k_použití}</p>`;
         }
         return `<p>Návod k použití bude doplněn.</p>`;
     }
 
     getProductVideos(product) {
-        return `<p>Instruktážní videa k tomuto produktu budou brzy dostupná.</p>`;
+        // Use CSV column data if available
+        if (product.Videa && product.Videa.trim()) {
+            // Check if it's a URL or text content
+            if (product.Videa.startsWith('http')) {
+                return `
+                    <div class="video-content">
+                        <p>Instruktažní video:</p>
+                        <a href="${product.Videa}" target="_blank" class="video-link">Podivat se na video</a>
+                    </div>
+                `;
+            } else {
+                return `<p>${product.Videa}</p>`;
+            }
+        }
+        return `<p>Instruktažní videa k tomuto produktu budou brzy dostupná.</p>`;
     }
 
     getProductDocuments(product) {
+        // Use CSV column data if available
+        if (product.Dokumenty_a_certifikáty && product.Dokumenty_a_certifikáty.trim()) {
+            // Convert bullet points from CSV to HTML list
+            const documents = product.Dokumenty_a_certifikáty.split('\n').filter(line => line.trim());
+            if (documents.length > 0) {
+                const listItems = documents.map(doc => `<li>${doc.replace(/^•\s*/, '')}</li>`).join('');
+                return `
+                    <p>Dostupné dokumenty a certifikáty:</p>
+                    <ul>${listItems}</ul>
+                `;
+            }
+        }
         return `
             <p>Dostupné dokumenty:</p>
             <ul>

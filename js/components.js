@@ -209,7 +209,34 @@ function initializeComponents() {
 
     // Load Cart Sidebar
     const cartSidebar = document.getElementById('cart-sidebar');
-    if (!cartSidebar) {
+    if (cartSidebar) {
+        // Fill existing cart sidebar div with content
+        cartSidebar.className = 'cart-sidebar';
+        cartSidebar.innerHTML = `
+            <div class="cart-header">
+                <h3>Nákupní košík</h3>
+                <button class="cart-close" onclick="toggleCart()">×</button>
+            </div>
+            <div class="cart-content">
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <div class="total-row">
+                        <span>Celkem:</span>
+                        <span id="cart-total">0 Kč</span>
+                    </div>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-primary cart-checkout" onclick="proceedToCheckout()">
+                        Přejít k objednávce
+                    </button>
+                    <button class="btn-secondary" onclick="clearCart()">
+                        Vyprázdnit košík
+                    </button>
+                </div>
+            </div>
+        `;
+    } else {
+        // Create new cart sidebar if it doesn't exist
         document.body.insertAdjacentHTML('beforeend', createCartSidebar());
     }
 
