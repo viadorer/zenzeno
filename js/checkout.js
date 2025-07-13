@@ -331,7 +331,7 @@ function processOrder(order) {
         
         // Clear cart
         if (typeof cart !== 'undefined') {
-            cart.clearCart();
+            cart.clear();
         }
         
         // Redirect to success page

@@ -7,7 +7,7 @@
 
 .loading-spinner {
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #0066cc;
+    border-top: 4px solid #8b5cf6;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -66,7 +66,7 @@
 }
 
 .product-badge.popular {
-    background: #0066cc;
+    background: #8b5cf6;
 }
 
 .product-badge.package {
@@ -115,7 +115,7 @@
 .current-price {
     font-size: 2rem;
     font-weight: 700;
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .original-price {
@@ -138,14 +138,14 @@
 }
 
 .premier-pricing h4 {
-    color: #0066cc;
+    color: #8b5cf6;
     margin-bottom: 0.5rem;
 }
 
 .premier-price span {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .premier-info {
@@ -155,7 +155,7 @@
 }
 
 .show-sets-link {
-    color: #0066cc;
+    color: #8b5cf6;
     text-decoration: underline;
     font-size: 0.9rem;
 }
@@ -216,11 +216,11 @@
 }
 
 .section-toggle:hover {
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .section-toggle.active {
-    color: #0066cc;
+    color: #8b5cf6;
 }
 
 .toggle-icon {

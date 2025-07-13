@@ -17,9 +17,23 @@ class ShoppingCart {
     }
 
     // Add item to cart
-    addItem(productId, quantity = 1) {
-        const product = productLoader.getProductById(productId);
-        if (!product) return false;
+    addItem(productId, quantity = 1, productData = null) {
+        let product = productData;
+        
+        // Try to get product data from productLoader if available
+        if (!product && window.productLoader) {
+            product = productLoader.getProductById(productId);
+        }
+        
+        // If we still don't have product data, create a basic one
+        if (!product) {
+            product = {
+                id: productId,
+                name: `Produkt ${productId}`,
+                price: 0,
+                image: 'images/placeholder.jpg'
+            };
+        }
 
         const existingItem = this.items.find(item => item.id === productId);
         
@@ -159,9 +173,14 @@ class ShoppingCart {
 // Initialize cart
 const cart = new ShoppingCart();
 
-// Global functions
+// Global function to add to cart
 function addToCart(productId, quantity = 1) {
     cart.addItem(productId, quantity);
+}
+
+// Global function to add to cart with product data
+function addToCartWithData(productId, quantity = 1, productData = null) {
+    cart.addItem(productId, quantity, productData);
 }
 
 function toggleCart() {

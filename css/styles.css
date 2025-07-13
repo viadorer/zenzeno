@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #8b1538;
+    --primary-color: #8b5cf6;
     --secondary-color: #2c5530;
     --accent-color: #ffd700;
     --text-dark: #333333;
@@ -113,18 +113,22 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="80" fill="url(%23a)"/></svg>');
-    opacity: 0.3;
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+    z-index: 0;
 }
 
 .hero-content {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     z-index: 1;
-    max-width: 600px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+    gap: 3rem;
 }
 
 .hero-text h1 {
@@ -144,9 +148,18 @@ p {
     gap: 1rem;
 }
 
-/* Hero image is now background - this rule can be removed or kept for other uses */
 .hero-image {
-    display: none;
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* Product Showcase Section */

@@ -186,7 +186,7 @@ function createProductCard(product) {
                     </div>
                 </div>
             </a>
-            <button class="btn-primary add-to-cart" onclick="addToCart(${product.id})">
+            <button class="btn-primary add-to-cart" onclick="addToCartWithData(${product.id}, 1, ${JSON.stringify(product).replace(/"/g, '&quot;')})">
                 Přidat do košíku
             </button>
         </div>
